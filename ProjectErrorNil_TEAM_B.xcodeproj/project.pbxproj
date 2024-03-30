@@ -13,7 +13,7 @@
 		01349EE92BB751E30002D82B /* TabControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE82BB751E30002D82B /* TabControllers.swift */; };
 		D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */; };
 		D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */; };
-		D7BABFCB2BB5B488003A2FB5 /* AuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCA2BB5B488003A2FB5 /* AuthViewContoller.swift */; };
+		D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */; };
 		D7BABFD12BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCF2BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld */; };
 		D7BABFD32BB5B489003A2FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */; };
 		D7BABFD62BB5B489003A2FB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BABFD42BB5B489003A2FB5 /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		D7BABFC32BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectErrorNil_TEAM_B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7BABFCA2BB5B488003A2FB5 /* AuthViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewContoller.swift; sourceTree = "<group>"; };
+		D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewContoller.swift; sourceTree = "<group>"; };
 		D7BABFD02BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectErrorNil_TEAM_B.xcdatamodel; sourceTree = "<group>"; };
 		D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7BABFD52BB5B489003A2FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +56,32 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D704FF842BB73FCE008F612D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */,
+				D704FF802BB6E9F4008F612D /* VKAuthViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D704FF852BB73FE0008F612D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D704FF822BB6F70A008F612D /* VKManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D704FF862BB73FEB008F612D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */,
+				D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		D7BABFBA2BB5B488003A2FB5 = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +101,10 @@
 		D7BABFC52BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B */ = {
 			isa = PBXGroup;
 			children = (
+				D704FF862BB73FEB008F612D /* Delegates */,
+				D704FF842BB73FCE008F612D /* ViewControllers */,
+				D704FF852BB73FE0008F612D /* Managers */,
 				01349EE02BB749880002D82B /* Controllers */,
-				D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */,
-				D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */,
-				D7BABFCA2BB5B488003A2FB5 /* AuthViewContoller.swift */,
 				D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */,
 				D7BABFD42BB5B489003A2FB5 /* LaunchScreen.storyboard */,
 				D7BABFD72BB5B489003A2FB5 /* Info.plist */,
@@ -157,8 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7BABFCB2BB5B488003A2FB5 /* AuthViewContoller.swift in Sources */,
 				D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */,
+				D704FF832BB6F70A008F612D /* VKManager.swift in Sources */,
+				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
+				D704FF812BB6E9F4008F612D /* VKAuthViewController.swift in Sources */,
 				01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */,
 				01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */,
 				01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */,
@@ -308,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3M9TNH7XM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectErrorNil_TEAM_B/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -336,7 +364,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3M9TNH7XM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectErrorNil_TEAM_B/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
