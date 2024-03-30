@@ -57,6 +57,7 @@
 				01349EE82BB751E30002D82B /* TabControllers.swift */,
 				01349EE12BB74A6B0002D82B /* MainNewsVC.swift */,
 				01349EE52BB74AC40002D82B /* StorageVC.swift */,
+				01349EE32BB74AAD0002D82B /* NewsVKVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -64,7 +65,6 @@
 		D704FF852BB73FE0008F612D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				01349EE32BB74AAD0002D82B /* NewsVKVC.swift */,
 				01C73EAD2BB89B1E0009AF9E /* VKManager.swift */,
 			);
 			path = Managers;
