@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE12BB74A6B0002D82B /* MainNewsVC.swift */; };
+		01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE32BB74AAD0002D82B /* NewsVKVC.swift */; };
+		01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE52BB74AC40002D82B /* StorageVC.swift */; };
+		01349EE92BB751E30002D82B /* TabControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE82BB751E30002D82B /* TabControllers.swift */; };
 		D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */; };
 		D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */; };
 		D7BABFCB2BB5B488003A2FB5 /* AuthViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCA2BB5B488003A2FB5 /* AuthViewContoller.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01349EE12BB74A6B0002D82B /* MainNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsVC.swift; sourceTree = "<group>"; };
+		01349EE32BB74AAD0002D82B /* NewsVKVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVKVC.swift; sourceTree = "<group>"; };
+		01349EE52BB74AC40002D82B /* StorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageVC.swift; sourceTree = "<group>"; };
+		01349EE82BB751E30002D82B /* TabControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllers.swift; sourceTree = "<group>"; };
 		D7BABFC32BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectErrorNil_TEAM_B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01349EE02BB749880002D82B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				01349EE82BB751E30002D82B /* TabControllers.swift */,
+				01349EE12BB74A6B0002D82B /* MainNewsVC.swift */,
+				01349EE32BB74AAD0002D82B /* NewsVKVC.swift */,
+				01349EE52BB74AC40002D82B /* StorageVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D7BABFBA2BB5B488003A2FB5 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +75,7 @@
 		D7BABFC52BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B */ = {
 			isa = PBXGroup;
 			children = (
+				01349EE02BB749880002D82B /* Controllers */,
 				D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */,
 				D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */,
 				D7BABFCA2BB5B488003A2FB5 /* AuthViewContoller.swift */,
@@ -139,6 +159,10 @@
 			files = (
 				D7BABFCB2BB5B488003A2FB5 /* AuthViewContoller.swift in Sources */,
 				D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */,
+				01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */,
+				01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */,
+				01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */,
+				01349EE92BB751E30002D82B /* TabControllers.swift in Sources */,
 				D7BABFD12BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld in Sources */,
 				D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,13 +308,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3M9TNH7XM2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectErrorNil_TEAM_B/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,13 +336,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3M9TNH7XM2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectErrorNil_TEAM_B/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
