@@ -30,4 +30,3 @@ class VKManager {
         return req
     }
 }
-
