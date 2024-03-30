@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D704FF812BB6E9F4008F612D /* VKAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704FF802BB6E9F4008F612D /* VKAuthViewController.swift */; };
-		D704FF832BB6F70A008F612D /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704FF822BB6F70A008F612D /* VKManager.swift */; };
+		01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE12BB74A6B0002D82B /* MainNewsVC.swift */; };
+		01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE32BB74AAD0002D82B /* NewsVKVC.swift */; };
+		01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE52BB74AC40002D82B /* StorageVC.swift */; };
+		01349EE92BB751E30002D82B /* TabControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE82BB751E30002D82B /* TabControllers.swift */; };
+		01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAD2BB89B1E0009AF9E /* VKManager.swift */; };
+		01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */; };
 		D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */; };
 		D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */; };
 		D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */; };
@@ -18,8 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D704FF802BB6E9F4008F612D /* VKAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthViewController.swift; sourceTree = "<group>"; };
-		D704FF822BB6F70A008F612D /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
+		01349EE12BB74A6B0002D82B /* MainNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsVC.swift; sourceTree = "<group>"; };
+		01349EE32BB74AAD0002D82B /* NewsVKVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVKVC.swift; sourceTree = "<group>"; };
+		01349EE52BB74AC40002D82B /* StorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageVC.swift; sourceTree = "<group>"; };
+		01349EE82BB751E30002D82B /* TabControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllers.swift; sourceTree = "<group>"; };
+		01C73EAD2BB89B1E0009AF9E /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
+		01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthViewController.swift; sourceTree = "<group>"; };
 		D7BABFC32BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectErrorNil_TEAM_B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +53,10 @@
 			isa = PBXGroup;
 			children = (
 				D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */,
-				D704FF802BB6E9F4008F612D /* VKAuthViewController.swift */,
+				01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */,
+				01349EE82BB751E30002D82B /* TabControllers.swift */,
+				01349EE12BB74A6B0002D82B /* MainNewsVC.swift */,
+				01349EE52BB74AC40002D82B /* StorageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -53,7 +64,8 @@
 		D704FF852BB73FE0008F612D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				D704FF822BB6F70A008F612D /* VKManager.swift */,
+				01349EE32BB74AAD0002D82B /* NewsVKVC.swift */,
+				01C73EAD2BB89B1E0009AF9E /* VKManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -167,10 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D704FF832BB6F70A008F612D /* VKManager.swift in Sources */,
-				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
-				D704FF812BB6E9F4008F612D /* VKAuthViewController.swift in Sources */,
 				D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */,
+				01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */,
+				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
+				01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */,
+				01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */,
+				01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */,
+				01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */,
+				01349EE92BB751E30002D82B /* TabControllers.swift in Sources */,
 				D7BABFD12BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld in Sources */,
 				D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */,
 			);
@@ -323,6 +339,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,6 +367,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
