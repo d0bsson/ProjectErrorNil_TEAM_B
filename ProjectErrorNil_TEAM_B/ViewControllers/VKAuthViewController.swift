@@ -12,6 +12,8 @@ import WebKit
 
 class VKAuthViewController: UIViewController {
     
+   
+    
     private let vkManager = VKManager()
     
     lazy var webView = {
