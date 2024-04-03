@@ -8,6 +8,8 @@
 import UIKit
 
 class MainNewsVC: UIViewController, UICollectionViewDelegate {
+   
+    var delegate: SceneDelegate? 
     
     private let network = NewsManager()
     
