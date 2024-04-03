@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 
+
     var window: UIWindow?
 
 
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+
          window.rootViewController = UINavigationController(rootViewController: StartViewController())
         setLoginStatus(isLogin: UserDefaults.standard.bool(forKey: "isLogin"))
         window.makeKeyAndVisible()
@@ -37,7 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 createRootViewController(viewController: loginVC)
             }
         }
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
