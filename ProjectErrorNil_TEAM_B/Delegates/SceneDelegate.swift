@@ -17,16 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-       // window.rootViewController = UINavigationController(rootViewController: StartViewController())
+         window.rootViewController = UINavigationController(rootViewController: StartViewController())
         setLoginStatus(isLogin: UserDefaults.standard.bool(forKey: "isLogin"))
         window.makeKeyAndVisible()
         
         self.window = window
         
-        
-        let authManager = AuthManager().shared
-               let isLogin = authManager.isLoggedIn()
-               
         func createRootViewController(viewController: UIViewController){
             self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         }
