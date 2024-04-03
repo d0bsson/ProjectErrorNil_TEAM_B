@@ -16,32 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = TabControllers()
-//        UINavigationController(rootViewController: StartViewController())
+        let navigationView = UINavigationController(rootViewController: StartViewController())
+        window.rootViewController = navigationView
         window.makeKeyAndVisible()
         
         self.window = window
     }
-    
-//    func showTabBar() {
-//            let tabBarController = UITabBarController()
-//
-//            let firstViewController = MainNewsVC()
-//            firstViewController.view.backgroundColor = .red
-//            firstViewController.title = "First"
-//
-//            let secondViewController = NewsVKVC()
-//            secondViewController.view.backgroundColor = .blue
-//            secondViewController.title = "Second"
-//
-//            let thirdViewController = StorageVC()
-//            thirdViewController.view.backgroundColor = .green
-//            thirdViewController.title = "Third"
-//
-//            tabBarController.viewControllers = [firstViewController, secondViewController, thirdViewController]
-//
-//            window?.rootViewController = tabBarController
-//        }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
