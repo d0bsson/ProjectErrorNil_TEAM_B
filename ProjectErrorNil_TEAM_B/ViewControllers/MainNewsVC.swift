@@ -8,7 +8,7 @@
 import UIKit
 
 class MainNewsVC: UIViewController {
-
+    var delegate: SceneDelegate? 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

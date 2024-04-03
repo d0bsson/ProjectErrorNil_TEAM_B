@@ -9,7 +9,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    var delegate: SceneDelegate? 
+
     
     lazy var backgroundImage = {
         $0.image = UIImage(named: "background")

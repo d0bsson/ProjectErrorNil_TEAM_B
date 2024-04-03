@@ -29,11 +29,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         func setLoginStatus(isLogin: Bool){
             if isLogin{
-                let startVC = StartViewController()
+                let startVC = MainNewsVC()
                 startVC.delegate = self
                 createRootViewController(viewController: startVC)
             } else{
-                let loginVC = VKAuthViewController()
+                let loginVC = StartViewController()
                 createRootViewController(viewController: loginVC)
             }
         }
