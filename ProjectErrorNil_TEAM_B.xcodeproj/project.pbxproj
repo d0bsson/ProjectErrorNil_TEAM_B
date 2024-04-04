@@ -11,6 +11,7 @@
 		01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE32BB74AAD0002D82B /* NewsVKVC.swift */; };
 		01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE52BB74AC40002D82B /* StorageVC.swift */; };
 		01349EE92BB751E30002D82B /* TabControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01349EE82BB751E30002D82B /* TabControllers.swift */; };
+		0139812E2BBF5DEE00FB00F2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0139812D2BBF5DEE00FB00F2 /* ImageCache.swift */; };
 		01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAD2BB89B1E0009AF9E /* VKManager.swift */; };
 		01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */; };
 		01C73EB22BB985BB0009AF9E /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EB12BB985BB0009AF9E /* NewsManager.swift */; };
@@ -31,6 +32,7 @@
 		01349EE32BB74AAD0002D82B /* NewsVKVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVKVC.swift; sourceTree = "<group>"; };
 		01349EE52BB74AC40002D82B /* StorageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageVC.swift; sourceTree = "<group>"; };
 		01349EE82BB751E30002D82B /* TabControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllers.swift; sourceTree = "<group>"; };
+		0139812D2BBF5DEE00FB00F2 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		01C73EAD2BB89B1E0009AF9E /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthViewController.swift; sourceTree = "<group>"; };
 		01C73EB12BB985BB0009AF9E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				01C73EAD2BB89B1E0009AF9E /* VKManager.swift */,
 				01C73EB12BB985BB0009AF9E /* NewsManager.swift */,
+				0139812D2BBF5DEE00FB00F2 /* ImageCache.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				01C73EB22BB985BB0009AF9E /* NewsManager.swift in Sources */,
 				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
 				01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */,
+				0139812E2BBF5DEE00FB00F2 /* ImageCache.swift in Sources */,
 				01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */,
 				01C73EB52BB986390009AF9E /* MainNews.swift in Sources */,
 				01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */,

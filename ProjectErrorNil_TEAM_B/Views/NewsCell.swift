@@ -133,12 +133,24 @@ class NewsCell: UICollectionViewCell {
     
     
     func setItems(item: NewsItem) {
-        guard let imageUrl = item.urlToImage,
-              let url = URL(string: imageUrl) else {
-            return
-        }
-        
-        imageView.load(url: url)
+        guard let imageUrlString = item.urlToImage,
+                let imageUrl = URL(string: imageUrlString) else {
+              return
+          }
+
+          if let cachedImage = ImageCache.shared.image(forKey: imageUrlString) {
+              imageView.image = cachedImage
+          } else {
+              DispatchQueue.global().async {
+                  if let data = try? Data(contentsOf: imageUrl),
+                     let image = UIImage(data: data) {
+                      ImageCache.shared.setImage(image, forKey: imageUrlString)
+                      DispatchQueue.main.async {
+                          self.imageView.image = image
+                      }
+                  }
+              }
+          }
         
         fullUrlString = item.url
         urlLabel.text = item.url?.toHost
@@ -150,20 +162,6 @@ class NewsCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension UIImageView {
-    func load (url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data (contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
 }
 
 extension String {
