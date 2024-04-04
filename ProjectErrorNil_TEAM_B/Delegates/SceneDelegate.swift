@@ -8,7 +8,6 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
 
 
     var window: UIWindow?
@@ -24,11 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         self.window = window
-        
+
         func createRootViewController(viewController: UIViewController){
             self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         }
-        
+
         func setLoginStatus(isLogin: Bool){
             if isLogin{
                 let startVC = MainNewsVC()
@@ -39,8 +38,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 createRootViewController(viewController: loginVC)
             }
         }
+
     }
-    
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
