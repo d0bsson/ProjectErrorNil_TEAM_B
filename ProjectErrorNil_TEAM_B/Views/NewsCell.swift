@@ -165,6 +165,7 @@ extension UIImageView {
         }
     }
 }
+
 extension String {
     var toHost: String? {
         guard let encodeUrl = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
