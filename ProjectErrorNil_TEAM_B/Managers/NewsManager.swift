@@ -8,16 +8,8 @@
 import Foundation
 
 class NewsManager {
-    private var cachedNews: [String: [NewsItem]] = [:]
     func getNews(q: String, count: Int, completion:@escaping ([NewsItem]) -> ()) {
-        let normalizedQuery = q.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                // Check if news items are cached
-                if let cachedItems = cachedNews[normalizedQuery] {
-                    // If cached, return the cached items
-                    completion(cachedItems)
-                    return
-                }
+
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "newsapi.org"

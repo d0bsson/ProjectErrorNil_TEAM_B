@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UICollectionViewCell {
     
     static let reuseId = "NewsCell"
    
-    private var fullUrlString: String?
+     var fullUrlString: String?
     
     lazy var cellView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -36,8 +37,7 @@ class NewsCell: UICollectionViewCell {
         
     }(UIImageView())
     
-    
-    private lazy var urlLabel: UILabel = {
+     lazy var urlLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         $0.textColor = .black
         $0.numberOfLines = 0
@@ -52,7 +52,7 @@ class NewsCell: UICollectionViewCell {
         guard let urlString = fullUrlString, let url = URL(string: urlString) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    private lazy var dateLabel: UILabel = {
+     lazy var dateLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         $0.textColor = UIColor(red: 0.65, green: 0.65, blue: 0.65, alpha: 1)
         $0.numberOfLines = 0
@@ -81,7 +81,6 @@ class NewsCell: UICollectionViewCell {
         
         return $0
     }(UILabel())
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -116,6 +115,19 @@ class NewsCell: UICollectionViewCell {
             
         ])
     }
+    func setItems(item: NewsItemRepresentable) {
+        guard let imageUrlString = item.urlToImage,
+              let imageUrl = URL(string: imageUrlString) else {
+            return
+        }
+        imageView.sd_setImage(with: imageUrl, placeholderImage: .none)
+        fullUrlString = item.url
+        urlLabel.text = item.url?.toHost
+        dateLabel.text = formattedDate(from: item.publishedAt)
+        descriptionLabel.text = item.description
+        titleLabel.text = item.title
+    }
+    
     func formattedDate(from dateString: String?) -> String? {
         guard let dateString = dateString else { return nil }
         
@@ -131,33 +143,6 @@ class NewsCell: UICollectionViewCell {
         }
     }
     
-    
-    func setItems(item: NewsItem) {
-        guard let imageUrlString = item.urlToImage,
-                let imageUrl = URL(string: imageUrlString) else {
-              return
-          }
-
-          if let cachedImage = ImageCache.shared.image(forKey: imageUrlString) {
-              imageView.image = cachedImage
-          } else {
-              DispatchQueue.global().async {
-                  if let data = try? Data(contentsOf: imageUrl),
-                     let image = UIImage(data: data) {
-                      ImageCache.shared.setImage(image, forKey: imageUrlString)
-                      DispatchQueue.main.async {
-                          self.imageView.image = image
-                      }
-                  }
-              }
-          }
-        
-        fullUrlString = item.url
-        urlLabel.text = item.url?.toHost
-        dateLabel.text = formattedDate(from: item.publishedAt)
-        descriptionLabel.text = item.description
-        titleLabel.text = item.title
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
