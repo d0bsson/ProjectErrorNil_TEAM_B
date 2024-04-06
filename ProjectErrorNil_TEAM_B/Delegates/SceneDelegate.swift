@@ -17,13 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-
-         window.rootViewController = UINavigationController(rootViewController: StartViewController())
-        setLoginStatus(isLogin: UserDefaults.standard.bool(forKey: "isLogin"))
+        
+        window.rootViewController = UINavigationController(rootViewController: StartViewController())
+        
         window.makeKeyAndVisible()
         
         self.window = window
-
+    }
+    
         func createRootViewController(viewController: UIViewController){
             self.window?.rootViewController = UINavigationController(rootViewController: viewController)
         }
@@ -73,4 +74,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
+
