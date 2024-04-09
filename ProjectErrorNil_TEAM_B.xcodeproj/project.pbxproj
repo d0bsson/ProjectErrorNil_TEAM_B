@@ -21,6 +21,7 @@
 		01C73EB82BB997CC0009AF9E /* MainNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EB72BB997CC0009AF9E /* MainNewsView.swift */; };
 		01C73EBA2BB9A5BA0009AF9E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EB92BB9A5BA0009AF9E /* NewsCell.swift */; };
 		99CA58332BB9DF14003E8B3A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA58322BB9DF14003E8B3A /* AuthManager.swift */; };
+		D744734F2BC5C9E0009F2CA4 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D744734E2BC5C9E0009F2CA4 /* NotificationName.swift */; };
 		D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */; };
 		D7BABFC92BB5B488003A2FB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */; };
 		D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCA2BB5B488003A2FB5 /* StartViewContoller.swift */; };
@@ -42,6 +43,7 @@
 		01C73EB72BB997CC0009AF9E /* MainNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsView.swift; sourceTree = "<group>"; };
 		01C73EB92BB9A5BA0009AF9E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		99CA58322BB9DF14003E8B3A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		D744734E2BC5C9E0009F2CA4 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		D7BABFC32BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectErrorNil_TEAM_B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BABFC62BB5B488003A2FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BABFC82BB5B488003A2FB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		D744734D2BC5C9BA009F2CA4 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				D744734E2BC5C9E0009F2CA4 /* NotificationName.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		D7BABFBA2BB5B488003A2FB5 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 				D704FF862BB73FEB008F612D /* Delegates */,
 				D704FF842BB73FCE008F612D /* Controllers */,
 				D704FF852BB73FE0008F612D /* Managers */,
+				D744734D2BC5C9BA009F2CA4 /* Extentions */,
 				D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */,
 				D7BABFD42BB5B489003A2FB5 /* LaunchScreen.storyboard */,
 				D7BABFD72BB5B489003A2FB5 /* Info.plist */,
@@ -226,6 +237,7 @@
 			files = (
 				D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */,
 				01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */,
+				D744734F2BC5C9E0009F2CA4 /* NotificationName.swift in Sources */,
 				01C73EB82BB997CC0009AF9E /* MainNewsView.swift in Sources */,
 				01C73EB22BB985BB0009AF9E /* NewsManager.swift in Sources */,
 				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
