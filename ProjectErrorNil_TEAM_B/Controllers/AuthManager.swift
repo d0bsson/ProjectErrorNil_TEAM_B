@@ -12,7 +12,7 @@ protocol SceneRouteDelegate{
 }
 
 class AuthManager{
-    let shared = AuthManager()
+    static let shared = AuthManager()
     let userDef = UserDefaults.standard
     
     //функция на вход
