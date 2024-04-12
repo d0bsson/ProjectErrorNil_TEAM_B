@@ -8,7 +8,7 @@
 import Foundation
 
 class NewsManager {
-    func getNews(q: String, count: Int, completion:@escaping ([NewsItem]) -> ()) {
+    func getNews(q: String, count: Int, completion: @escaping ([NewsItem]) -> ()) {
 
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -21,14 +21,9 @@ class NewsManager {
         URLQueryItem(name: "apiKey", value: "c1417a8991234f7592f514ecebbc16fa"),
         URLQueryItem(name: "language", value: "ru")]
         
-//       print(urlComponents.url)
-        //2 request
         guard let url = urlComponents.url else { return }
-        print(url)
         let req = URLRequest(url: url)
-        
-        //3 send request
-        
+                
         URLSession.shared.dataTask(with: req) { data, _, err in
             guard
                 err == nil,
@@ -41,7 +36,6 @@ class NewsManager {
             do {
                let result = try JSONDecoder().decode(MainNews.self, from: resData)
                 completion(result.articles)
-                print(result.articles)
             } catch let error {
                 print(error.localizedDescription)
             }

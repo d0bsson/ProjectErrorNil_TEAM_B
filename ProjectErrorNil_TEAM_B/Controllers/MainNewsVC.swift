@@ -9,16 +9,22 @@ import UIKit
 
 class MainNewsVC: UIViewController, UICollectionViewDelegate {
     
+    func getFavoritedNewsItems() -> [NewsItem] {
+        
+        guard let news = news else { return [] }
+        return news.articles.filter { $0.isFavorite ?? false }
+    }
     var delegate: SceneDelegate?
     
     private let network = NewsManager()
     
-    var newsItem: [NewsItem] = []
-    
-    lazy var collection = UICollectionView()
-    
-    var news: MainNews?
-    
+    private(set) var news: MainNews? = .init(totalResults: 0, articles: []) {
+        willSet {
+            if !Thread.isMainThread {
+                fatalError("must be in main thread")
+            }
+        }
+    }
     
     private lazy var viewBuilder: MainNewsView = {
         return MainNewsView(view: self.view, dataSource: self, delegate: self)
@@ -33,6 +39,7 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
         return $0
     }(UILabel())
     
+    lazy var collection = viewBuilder.createCollection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +51,6 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)])
         
-        collection = viewBuilder.createCollection()
-
         view.addSubview(collection)
         
         NSLayoutConstraint.activate([
@@ -53,41 +58,43 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
             collection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             collection.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
-            
         ])
         
         setupSearchController()
-        
-        network.getNews(q: "", count: 0) { [weak self] items in
-            print(items.first?.urlToImage ?? "")
-            self?.news = .init(totalResults: (self?.newsItem.count)!, articles: items)
-            DispatchQueue.main.async {
-                self?.collection.reloadData()
             }
-
+  
+    func updateNews(_ news: MainNews) {
+        DispatchQueue.main.async {
+            self.news = news
+            self.collection.reloadData()
         }
-        func setupSearchController() {
-            let searchController = UISearchController(searchResultsController: nil)
-            searchController.searchResultsUpdater = self
-            searchController.searchBar.sizeToFit()
-            searchController.searchBar.barTintColor = UIColor(red: 70/255,green: 70/255,blue: 71/255, alpha:0.9)
-            searchController.searchBar.tintColor = UIColor.lightGray
-            searchController.hidesNavigationBarDuringPresentation = false
-            searchController.definesPresentationContext = true
-            searchController.searchBar.delegate = self
-            searchController.searchBar.barStyle = UIBarStyle.black
-            navigationItem.searchController = searchController
-            
-            if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-
+    }
+    
+    func addIdTo(newsItems: inout [NewsItem]) {
+        for index in newsItems.indices {
+            newsItems[index].newsId = UUID()
+            newsItems[index].isFavorite = false
+        }
+    }
+    
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.barTintColor = UIColor(red: 70/255,green: 70/255,blue: 71/255, alpha:0.9)
+        searchController.searchBar.tintColor = UIColor.lightGray
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.definesPresentationContext = true
+        searchController.searchBar.delegate = self
+        searchController.searchBar.barStyle = UIBarStyle.black
+        navigationItem.searchController = searchController
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = .white
             textField.textColor = .black
-
-                }
-            }
-        
-
         }
+    }
+    
     func formattedDate(from dateString: String?) -> String? {
         guard let dateString = dateString else { return nil }
         
@@ -102,39 +109,46 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
             return nil
         }
     }
-    
-    }
+}
 
-    extension MainNewsVC: UICollectionViewDataSource {
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            news?.articles.count ?? 0
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.reuseId, for: indexPath) as! NewsCell
-            let newsItem = NewsItem(title: news?.articles[indexPath.row].title,
-                                    description: news?.articles[indexPath.row].description,
-                                    url: news?.articles[indexPath.row].url,
-                                    urlToImage: news?.articles[indexPath.row].urlToImage,
-                                    publishedAt: news?.articles[indexPath.row].publishedAt,
-                                    content: news?.articles[indexPath.row].content)
-            
-            cell.setItems(item: newsItem)
-            return cell
-        }
-        
-        
+
+extension MainNewsVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return news?.articles.count ?? 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainNewsCell.reuseId, for: indexPath) as! MainNewsCell
+        
+        let newsItem = NewsItem(newsId: news?.articles[indexPath.row].newsId,
+                                title: news?.articles[indexPath.row].title,
+                                description: news?.articles[indexPath.row].description,
+                                url: news?.articles[indexPath.row].url,
+                                urlToImage: news?.articles[indexPath.row].urlToImage,
+                                publishedAt: news?.articles[indexPath.row].publishedAt,
+                                content: news?.articles[indexPath.row].content,
+                                isFavorite: news?.articles[indexPath.row].isFavorite)
+        if let isFavorite = news?.articles[indexPath.row].isFavorite {
+            cell.isStarFilled = isFavorite
+        }
+        
+        cell.setItems(item: newsItem)
+        cell.delegate = self
+        return cell
+    }
+}
+
 extension MainNewsVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         self.network.getNews(q: searchText, count: 15) { [weak self] items in
-            self?.news = MainNews(totalResults: items.count, articles: items)
+            var newsItems = items
+            self?.addIdTo(newsItems: &newsItems)
+            self?.updateNews(.init(totalResults: items.count, articles: newsItems))
             DispatchQueue.main.async {
                 self?.collection.reloadData()
             }
         }
-        
     }
 }
 
@@ -143,3 +157,48 @@ extension MainNewsVC: UISearchResultsUpdating {
         
     }
 }
+extension MainNewsVC: NewsCellDelegate {
+    func didTapButton(in cell: MainNewsCell) {
+        
+        cell.isStarFilled.toggle()
+        
+        let indexPath = collection.indexPath(for: cell)
+        print(indexPath?.row)
+        
+        let selectedNewsItem = news?.articles[indexPath?.row ?? 0]
+        
+        for index in news!.articles.indices {
+            
+            if news?.articles[index].newsId == selectedNewsItem?.newsId {
+                
+                guard var news1 = news else { return }
+                
+                if (selectedNewsItem?.isFavorite)! {
+                    print("удаление")
+                } else {
+                    
+                    if let selectedNewsItem = selectedNewsItem {
+                        CoreDataManager.shared.saveNewsItem(selectedNewsItem) { success in
+                            if success {
+                                print("Cохранено")
+                                
+                                let favoritedNewsItems = self.getFavoritedNewsItems()
+                                
+                                let storageVC = StorageVC()
+                                storageVC.newsItem = favoritedNewsItems
+                            } else {
+                                print("Не сохранено")
+                            }
+                        }
+                    }
+                    
+                    news1.articles[index].isFavorite?.toggle()
+                    updateNews(news1)
+                    
+                }
+            }
+        }
+    }
+}
+
+

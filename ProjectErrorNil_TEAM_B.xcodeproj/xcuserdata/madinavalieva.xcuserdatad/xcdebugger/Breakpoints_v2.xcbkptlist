@@ -3,4 +3,102 @@
    uuid = "860BEBF9-0F6C-4ED1-8B46-36C59526415C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "040421B5-C1EE-4C49-BBCA-E334317EE528"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "040421B5-C1EE-4C49-BBCA-E334317EE528 - 7a1fff7fdd76d98c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectErrorNil_TEAM_B.MainNewsVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ProjectErrorNil_TEAM_B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madinavalieva/Project%20Error%20Nil/ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "580">
+               </Location>
+               <Location
+                  uuid = "040421B5-C1EE-4C49-BBCA-E334317EE528 - 7a1fff7fdd76d98c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectErrorNil_TEAM_B.MainNewsVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ProjectErrorNil_TEAM_B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madinavalieva/Project%20Error%20Nil/ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "604">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AF30FFB-36C6-402C-AAD6-BEB7E89FB503"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AF30FFB-36C6-402C-AAD6-BEB7E89FB503 - 7a1fff7fdd76dab4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectErrorNil_TEAM_B.MainNewsVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ProjectErrorNil_TEAM_B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madinavalieva/Project%20Error%20Nil/ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "2976">
+               </Location>
+               <Location
+                  uuid = "8AF30FFB-36C6-402C-AAD6-BEB7E89FB503 - 7a1fff7fdd76dd45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectErrorNil_TEAM_B.MainNewsVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "ProjectErrorNil_TEAM_B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madinavalieva/Project%20Error%20Nil/ProjectErrorNil_TEAM_B/Controllers/MainNewsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "3180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
