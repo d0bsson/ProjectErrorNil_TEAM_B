@@ -7,12 +7,8 @@
 
 import UIKit
 import WebKit
-//https://oauth.vk.com/authorize?client_id=51891179&redirect_uri=/blank.html&display=mobile&scope=offline&response_type=token&v=5.199
-
 
 class VKAuthViewController: UIViewController {
-    
-   
     
     private let vkManager = VKManager()
     
@@ -21,7 +17,7 @@ class VKAuthViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(WKWebView(frame: view.frame))
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(webView)
@@ -32,5 +28,31 @@ class VKAuthViewController: UIViewController {
 }
 
 extension VKAuthViewController: WKNavigationDelegate {
-    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url,
+              let fragment = url.fragment
+        else {
+            decisionHandler(.allow)
+            return
+        }
+        
+        let
+        params = fragment.components(separatedBy: "&")
+            .map{$0.components(separatedBy: "=")}
+            .reduce([String: String]()) { res, param in
+                var dict = res
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                
+                return dict
+            }
+        if let token = params["access_token"] {
+            AuthManager.shared.userDef.setValue(token, forKey: "access_token")
+            NotificationCenter.default.post(name: .loginNotification, object: nil, userInfo: ["isLogin" : true])
+        }
+        
+        decisionHandler(.cancel)
+    }
 }
+

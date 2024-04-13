@@ -7,24 +7,41 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
+=======
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
+
+
+>>>>>>> develop
     var window: UIWindow?
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        NotificationCenter.default.addObserver(self, selector: #selector(switchVC(notification: )), name: .loginNotification, object: nil)
         
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
+<<<<<<< HEAD
         window.rootViewController = UINavigationController(rootViewController: TabControllers())
         
+=======
+        if AuthManager.shared.userDef.string(forKey: "access_token") != nil {
+            window.rootViewController = TabControllers()
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: StartViewController())
+        }
+                
+>>>>>>> develop
         window.makeKeyAndVisible()
         
         self.window = window
     }
     
+<<<<<<< HEAD
     //        func createRootViewController(viewController: UIViewController){
     //            self.window?.rootViewController = UINavigationController(rootViewController: viewController)
     //        }
@@ -42,6 +59,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //
     //    }
     
+=======
+    @objc func switchVC(notification: Notification) {
+        guard let isLogin = notification.userInfo?["isLogin"] as? Bool else { return }
+        if isLogin {
+            self.window?.rootViewController = TabControllers()
+        } else {
+            self.window?.rootViewController = StartViewController()
+        }
+    }
+    
+    //MARK: - Этот код не срабатывает, пробую через NotificationCenter
+//        func createRootViewController(viewController: UIViewController){
+//            self.window?.rootViewController = UINavigationController(rootViewController: viewController)
+//        }
+//
+//        func setLoginStatus(isLogin: Bool){
+//            if isLogin{
+//                let startVC = TabControllers()
+//                startVC.delegate = self
+//                createRootViewController(viewController: startVC)
+//            } else{
+//                let loginVC = StartViewController()
+//                createRootViewController(viewController: loginVC)
+//            }
+//        }
+
+    }
+
+>>>>>>> develop
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
