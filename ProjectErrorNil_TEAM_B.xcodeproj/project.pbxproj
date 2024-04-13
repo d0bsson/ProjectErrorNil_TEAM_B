@@ -18,6 +18,7 @@
 		014A78272BC56B730037AAE0 /* EntityNews+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014A78252BC56B730037AAE0 /* EntityNews+CoreDataClass.swift */; };
 		014A78282BC56B730037AAE0 /* EntityNews+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014A78262BC56B730037AAE0 /* EntityNews+CoreDataProperties.swift */; };
 		014A782A2BC58EFD0037AAE0 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014A78292BC58EFD0037AAE0 /* StorageManager.swift */; };
+		014E70682BCA14E10010359D /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E70672BCA14E10010359D /* NotificationName.swift */; };
 		01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAD2BB89B1E0009AF9E /* VKManager.swift */; };
 		01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */; };
 		01C73EB22BB985BB0009AF9E /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C73EB12BB985BB0009AF9E /* NewsManager.swift */; };
@@ -43,6 +44,7 @@
 		014A78252BC56B730037AAE0 /* EntityNews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityNews+CoreDataClass.swift"; sourceTree = "<group>"; };
 		014A78262BC56B730037AAE0 /* EntityNews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntityNews+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		014A78292BC58EFD0037AAE0 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		014E70672BCA14E10010359D /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		01C73EAD2BB89B1E0009AF9E /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		01C73EAF2BB89B8A0009AF9E /* VKAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthViewController.swift; sourceTree = "<group>"; };
 		01C73EB12BB985BB0009AF9E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
@@ -73,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014E70662BCA14830010359D /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				014E70672BCA14E10010359D /* NotificationName.swift */,
+			);
+			name = Extentions;
+			path = Delegates/Extentions;
+			sourceTree = "<group>";
+		};
 		01C73EB32BB985F40009AF9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +160,7 @@
 				01C73EB62BB987F60009AF9E /* Views */,
 				01C73EB32BB985F40009AF9E /* Models */,
 				D704FF862BB73FEB008F612D /* Delegates */,
+				014E70662BCA14830010359D /* Extentions */,
 				D704FF842BB73FCE008F612D /* Controllers */,
 				D704FF852BB73FE0008F612D /* Managers */,
 				D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */,
@@ -246,6 +258,7 @@
 				014A78042BC48E8F0037AAE0 /* StorageCell.swift in Sources */,
 				01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */,
 				01C73EB52BB986390009AF9E /* MainNews.swift in Sources */,
+				014E70682BCA14E10010359D /* NotificationName.swift in Sources */,
 				01349EE62BB74AC40002D82B /* StorageVC.swift in Sources */,
 				01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */,
 				01C73EBA2BB9A5BA0009AF9E /* MainNewsCell.swift in Sources */,
