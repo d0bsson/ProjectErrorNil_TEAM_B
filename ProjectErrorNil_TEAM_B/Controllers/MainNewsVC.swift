@@ -8,7 +8,7 @@
 import UIKit
 
 class MainNewsVC: UIViewController, UICollectionViewDelegate {
-    
+    private let manager = VKManager()
     func getFavoritedNewsItems() -> [NewsItem] {
         
         guard let news = news else { return [] }
@@ -44,6 +44,7 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setUserInfo()
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -62,6 +63,15 @@ class MainNewsVC: UIViewController, UICollectionViewDelegate {
         
         setupSearchController()
             }
+    
+    private func setUserInfo() {
+        manager.getInfo { info in
+            DispatchQueue.main.async {
+                let name = "\(info.response.firstName) \(info.response.lastName)"
+                self.navigationItem.title = name
+            }
+        }
+    }
   
     func updateNews(_ news: MainNews) {
         DispatchQueue.main.async {

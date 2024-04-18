@@ -5,8 +5,10 @@
 //  Created by d0bsson on 09.04.2024.
 //
 
-import Foundation
+import UIKit
 
 extension Notification.Name {
     static let loginNotification = Notification.Name("loginNotification")
 }
+
+
