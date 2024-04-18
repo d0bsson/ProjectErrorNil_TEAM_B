@@ -19,5 +19,4 @@ struct Info: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
     }
-    
 }
