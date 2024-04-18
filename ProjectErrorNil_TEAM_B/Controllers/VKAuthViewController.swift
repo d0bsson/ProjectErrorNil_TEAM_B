@@ -49,9 +49,9 @@ extension VKAuthViewController: WKNavigationDelegate {
             }
         if let token = params["access_token"] {
             AuthManager.shared.userDef.setValue(token, forKey: "access_token")
+            Session.shared.token = token
             NotificationCenter.default.post(name: .loginNotification, object: nil, userInfo: ["isLogin" : true])
         }
-        
         decisionHandler(.cancel)
     }
 }

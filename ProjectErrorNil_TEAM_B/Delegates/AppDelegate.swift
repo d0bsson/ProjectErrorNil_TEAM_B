@@ -10,9 +10,13 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private let session = Session.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if let token = AuthManager.shared.userDef.string(forKey: "access_token") {
+            session.token = token
+        }
         return true
     }
     

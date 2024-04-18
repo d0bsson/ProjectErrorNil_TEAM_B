@@ -32,6 +32,10 @@
 		D7BABFD12BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7BABFCF2BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld */; };
 		D7BABFD32BB5B489003A2FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */; };
 		D7BABFD62BB5B489003A2FB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BABFD42BB5B489003A2FB5 /* LaunchScreen.storyboard */; };
+		D7E69CC52BCC749400E04741 /* VKNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E69CC42BCC749400E04741 /* VKNews.swift */; };
+		D7E69CC72BD049CD00E04741 /* NewsVKCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E69CC62BD049CD00E04741 /* NewsVKCell.swift */; };
+		D7E69CC92BD1AC9100E04741 /* UserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E69CC82BD1AC9100E04741 /* UserName.swift */; };
+		D7E69CCB2BD1B02300E04741 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E69CCA2BD1B02300E04741 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		D7BABFD22BB5B489003A2FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7BABFD52BB5B489003A2FB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7BABFD72BB5B489003A2FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7E69CC42BCC749400E04741 /* VKNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKNews.swift; sourceTree = "<group>"; };
+		D7E69CC62BD049CD00E04741 /* NewsVKCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVKCell.swift; sourceTree = "<group>"; };
+		D7E69CC82BD1AC9100E04741 /* UserName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserName.swift; sourceTree = "<group>"; };
+		D7E69CCA2BD1B02300E04741 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				014E70672BCA14E10010359D /* NotificationName.swift */,
+				D7E69CC82BD1AC9100E04741 /* UserName.swift */,
 			);
 			name = Extentions;
 			path = Delegates/Extentions;
@@ -88,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				01C73EB42BB986390009AF9E /* MainNews.swift */,
+				D7E69CC42BCC749400E04741 /* VKNews.swift */,
+				D7E69CCA2BD1B02300E04741 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +109,7 @@
 				01C73EB72BB997CC0009AF9E /* MainNewsView.swift */,
 				01C73EB92BB9A5BA0009AF9E /* MainNewsCell.swift */,
 				014A78032BC48E8F0037AAE0 /* StorageCell.swift */,
+				D7E69CC62BD049CD00E04741 /* NewsVKCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,14 +260,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E69CC52BCC749400E04741 /* VKNews.swift in Sources */,
 				D7BABFC72BB5B488003A2FB5 /* AppDelegate.swift in Sources */,
 				01C73EB02BB89B8A0009AF9E /* VKAuthViewController.swift in Sources */,
+				D7E69CCB2BD1B02300E04741 /* UserInfo.swift in Sources */,
 				014A78282BC56B730037AAE0 /* EntityNews+CoreDataProperties.swift in Sources */,
 				01C73EB82BB997CC0009AF9E /* MainNewsView.swift in Sources */,
 				01C73EB22BB985BB0009AF9E /* NewsManager.swift in Sources */,
 				D7BABFCB2BB5B488003A2FB5 /* StartViewContoller.swift in Sources */,
 				01349EE42BB74AAE0002D82B /* NewsVKVC.swift in Sources */,
 				014A78042BC48E8F0037AAE0 /* StorageCell.swift in Sources */,
+				D7E69CC72BD049CD00E04741 /* NewsVKCell.swift in Sources */,
 				01C73EAE2BB89B1E0009AF9E /* VKManager.swift in Sources */,
 				01C73EB52BB986390009AF9E /* MainNews.swift in Sources */,
 				014E70682BCA14E10010359D /* NotificationName.swift in Sources */,
@@ -263,6 +278,7 @@
 				01349EE22BB74A6B0002D82B /* MainNewsVC.swift in Sources */,
 				01C73EBA2BB9A5BA0009AF9E /* MainNewsCell.swift in Sources */,
 				01349EE92BB751E30002D82B /* TabControllers.swift in Sources */,
+				D7E69CC92BD1AC9100E04741 /* UserName.swift in Sources */,
 				99CA58332BB9DF14003E8B3A /* AuthManager.swift in Sources */,
 				014A782A2BC58EFD0037AAE0 /* StorageManager.swift in Sources */,
 				D7BABFD12BB5B488003A2FB5 /* ProjectErrorNil_TEAM_B.xcdatamodeld in Sources */,

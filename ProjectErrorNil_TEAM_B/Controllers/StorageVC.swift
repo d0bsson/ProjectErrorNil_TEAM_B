@@ -8,7 +8,7 @@
 import UIKit
 
 class StorageVC: UIViewController, UICollectionViewDelegate {
-   
+    private let manager = VKManager()
     var newsItem: [NewsItem] = []
     
     let newsEntity = CoreDataManager.shared.fetchAllNewsItems()?.last
@@ -32,6 +32,7 @@ class StorageVC: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setUserInfo()
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -123,6 +124,15 @@ extension StorageVC: UICollectionViewDataSource {
         cell.setItems(item: news)
   
         return cell
+    }
+    
+    private func setUserInfo() {
+        manager.getInfo { info in
+            DispatchQueue.main.async {
+                let name = "\(info.response.firstName) \(info.response.lastName)"
+                self.navigationItem.title = name
+            }
+        }
     }
 }
 extension StorageVC: UISearchBarDelegate {

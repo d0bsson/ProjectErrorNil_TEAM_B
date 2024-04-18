@@ -23,4 +23,5 @@ class AuthManager{
     func setLoginStatus(isLogin: Bool){
         userDef.set(isLogin, forKey: "isLogin")
     }
+    private init(){}
 }

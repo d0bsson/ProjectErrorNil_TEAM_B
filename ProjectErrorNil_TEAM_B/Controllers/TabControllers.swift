@@ -8,12 +8,14 @@
 import UIKit
 
 class TabControllers: UITabBarController {
+    private let manager = VKManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabs()
-
     }
+    
+    
     
     private func setupTabs() {
         let mainNewsVC = self.createNav(with: "Новости", image: UIImage(systemName: "star"), vc: MainNewsVC())
