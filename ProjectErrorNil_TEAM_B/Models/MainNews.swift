@@ -9,13 +9,16 @@ import Foundation
 
 struct MainNews: Decodable {
     let totalResults: Int
-    let articles: [NewsItem]
+    var articles: [NewsItem]
 }
 struct NewsItem: Decodable {
+    var newsId: UUID?
     let title: String?
     let description: String?
     let url: String?
     let urlToImage: String?
     let publishedAt: String?
-    let content: String? 
+    let content: String?
+    var isFavorite: Bool?
+    var isSelected: Bool?
 }

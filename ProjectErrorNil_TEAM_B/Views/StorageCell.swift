@@ -1,17 +1,18 @@
 //
-//  NewsCell.swift
+//  NewCell2.swift
 //  ProjectErrorNil_TEAM_B
 //
-//  Created by Мадина Валиева on 31.03.2024.
+//  Created by Мадина Валиева on 08.04.2024.
 //
 
 import UIKit
+import SDWebImage
 
-class NewsCell: UICollectionViewCell {
+class StorageCell: UICollectionViewCell {
     
-    static let reuseId = "NewsCell"
-   
-    private var fullUrlString: String?
+    static let reuseId = "NewsCell2"
+    var newsItem: [NewsItem] = []
+    var fullUrlString: String?
     
     lazy var cellView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +24,7 @@ class NewsCell: UICollectionViewCell {
         $0.addSubview(descriptionLabel)
         $0.addSubview(titleLabel)
         $0.addSubview(dateLabel)
+        $0.addSubview(button)
         
         return $0
     }(UIView())
@@ -32,12 +34,12 @@ class NewsCell: UICollectionViewCell {
         $0.layer.cornerRadius = 20
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        
         return $0
         
     }(UIImageView())
     
-    
-    private lazy var urlLabel: UILabel = {
+    lazy var urlLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         $0.textColor = .black
         $0.numberOfLines = 0
@@ -52,7 +54,7 @@ class NewsCell: UICollectionViewCell {
         guard let urlString = fullUrlString, let url = URL(string: urlString) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    private lazy var dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         $0.textColor = UIColor(red: 0.65, green: 0.65, blue: 0.65, alpha: 1)
         $0.numberOfLines = 0
@@ -69,8 +71,7 @@ class NewsCell: UICollectionViewCell {
         
         return $0
     }(UILabel())
-    
-    
+        
     private lazy var descriptionLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         $0.textColor = .black
@@ -82,6 +83,20 @@ class NewsCell: UICollectionViewCell {
         return $0
     }(UILabel())
     
+        
+    let button: UIButton = {
+        let button = UIButton(type: .system)
+        let starImage = UIImage(systemName: "star.fill")
+        button.setImage(starImage, for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    @objc func buttonPressed() {
+        
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -98,24 +113,40 @@ class NewsCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 0),
             imageView.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: 0),
             
+            button.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 20),
+            button.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
+            
             urlLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             urlLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
-            urlLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant:-10),
+            urlLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
             
             dateLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            dateLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant:-10),
+            dateLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
             
             titleLabel.topAnchor.constraint(equalTo: urlLabel.bottomAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant:-10),
+            titleLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant:-10),
+            descriptionLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -10),
             descriptionLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -30)
             
         ])
     }
+    func setItems(item: NewsItem) {
+        guard let imageUrlString = item.urlToImage,
+              let imageUrl = URL(string: imageUrlString) else {
+            return
+        }
+        imageView.sd_setImage(with: imageUrl, placeholderImage: .none)
+        fullUrlString = item.url
+        urlLabel.text = item.url?.toHost
+        dateLabel.text = formattedDate(from: item.publishedAt)
+        descriptionLabel.text = item.description
+        titleLabel.text = item.title
+    }
+    
     func formattedDate(from dateString: String?) -> String? {
         guard let dateString = dateString else { return nil }
         
@@ -131,40 +162,12 @@ class NewsCell: UICollectionViewCell {
         }
     }
     
-    
-    func setItems(item: NewsItem) {
-        guard let imageUrl = item.urlToImage,
-              let url = URL(string: imageUrl) else {
-            return
-        }
-        
-        imageView.load(url: url)
-        
-        fullUrlString = item.url
-        urlLabel.text = item.url?.toHost
-        dateLabel.text = formattedDate(from: item.publishedAt)
-        descriptionLabel.text = item.description
-        titleLabel.text = item.title
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
-extension UIImageView {
-    func load (url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data (contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
+
 extension String {
     var toHost: String? {
         guard let encodeUrl = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
@@ -172,3 +175,5 @@ extension String {
         return "\(components.scheme ?? "")://\(components.host ?? "")"
     }
 }
+
+

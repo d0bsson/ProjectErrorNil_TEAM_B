@@ -7,20 +7,54 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
+
 
     var window: UIWindow?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        NotificationCenter.default.addObserver(self, selector: #selector(switchVC(notification: )), name: .loginNotification, object: nil)
         
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navigationView = UINavigationController(rootViewController: StartViewController())
-        window.rootViewController = navigationView
+        
+        if AuthManager.shared.userDef.string(forKey: "access_token") != nil {
+            window.rootViewController = TabControllers()
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: StartViewController())
+        }
+                
         window.makeKeyAndVisible()
         
         self.window = window
+    }
+    
+    @objc func switchVC(notification: Notification) {
+        guard let isLogin = notification.userInfo?["isLogin"] as? Bool else { return }
+        if isLogin {
+            self.window?.rootViewController = TabControllers()
+        } else {
+            self.window?.rootViewController = StartViewController()
+        }
+    }
+    
+    //MARK: - Этот код не срабатывает, пробую через NotificationCenter
+//        func createRootViewController(viewController: UIViewController){
+//            self.window?.rootViewController = UINavigationController(rootViewController: viewController)
+//        }
+//
+//        func setLoginStatus(isLogin: Bool){
+//            if isLogin{
+//                let startVC = TabControllers()
+//                startVC.delegate = self
+//                createRootViewController(viewController: startVC)
+//            } else{
+//                let loginVC = StartViewController()
+//                createRootViewController(viewController: loginVC)
+//            }
+//        }
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,9 +85,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
     }
 
 
-}
 
