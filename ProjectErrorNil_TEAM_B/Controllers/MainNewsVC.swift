@@ -184,7 +184,11 @@ extension MainNewsVC: NewsCellDelegate {
                 guard var news1 = news else { return }
                 
                 if (selectedNewsItem?.isFavorite)! {
-                    print("удаление")
+                    CoreDataManager.shared.deleteNewsItem(selectedNewsItem!) { fail in
+                        if fail{
+                            print("удаление")
+                        }
+                    }
                 } else {
                     
                     if let selectedNewsItem = selectedNewsItem {

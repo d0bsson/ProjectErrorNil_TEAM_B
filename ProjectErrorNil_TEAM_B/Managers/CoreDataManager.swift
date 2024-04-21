@@ -90,4 +90,25 @@ class CoreDataManager {
             }
         }
     }
+    
+    func deleteNewsItem(_ newsItem: NewsItem, completion: @escaping (Bool) -> ()) {
+        let context = persistentContainer.viewContext
+        let request: NSFetchRequest<EntityNews> = EntityNews.fetchRequest()
+        request.predicate = NSPredicate(format: "title == %@", newsItem.title ?? "")
+        
+        do {
+            if let result = try context.fetch(request).first {
+                context.delete(result)
+                try context.save()
+                completion(true)
+            } else {
+                print("Новость с заголовком '\(newsItem.title ?? "")' не найдена")
+                completion(false)
+            }
+        } catch {
+            print("Ошибка при удалении новости: \(error)")
+            completion(false)
+        }
+    }
+
 }
